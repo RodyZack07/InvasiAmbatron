@@ -50,7 +50,8 @@ public class FirestoreManager : MonoBehaviour
                 Counter updatedCounter = new Counter
                 {
                     count = newCount,
-                    UpdateBy = "Ambatron"
+                    UpdateBy = "Ambatron",
+                    lastUpdated = Timestamp.GetCurrentTimestamp() // Tambahkan timestamp saat ini
                 };
 
                 countRef.SetAsync(updatedCounter).ContinueWithOnMainThread(setTask =>
@@ -72,4 +73,5 @@ public class FirestoreManager : MonoBehaviour
             }
         });
     }
+
 }
